@@ -144,7 +144,7 @@ function sparkTranslateMessage() {
                     console.log("Getting user email and it is: "+SpkUserMail+" and the display name is: "+UserToSend);
                     var FinalText = ("Haha awesome! I don't really know what you were trying to make me do, but here is a list of" +
                     "languages I can translate to: \n" +
-                    langword.toString());
+                    langword.toString() + "\n If you want me to translate, just type [your message] tr [target language or language code]!");
                     langcodes[langword.indexOf(lang)];
                     var prepValue = "https://api.ciscospark.com/v1/messages/";
                     unirest.post(prepValue)
