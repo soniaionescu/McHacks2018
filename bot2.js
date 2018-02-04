@@ -125,10 +125,6 @@ function sparkTranslateMessage() {
                         });  
                     }
                     else{                        
-                        // Use langword
-                        translate
-                        .translate(msg, langcodes[langword.indexOf(lang)])
-                        .then(results => {
                             UserToSend = response.body.displayName;               
                             console.log("Getting user email and it is: "+SpkUserMail+" and the display name is: "+UserToSend);
                             var FinalText = string.concat("We don't know that language! Here is a list of our languages: \n",
@@ -141,8 +137,6 @@ function sparkTranslateMessage() {
                             .end(function(response) {
                        console.log("Message sent to the room");
                             });
-                        }); 
-
                     }
                 }
                 else{
@@ -165,45 +159,6 @@ function sparkTranslateMessage() {
     });
 }
 
-
-
-
-
-// function translateGoogle(input){
-//     var msgback = ""
-//     if(input.indexOf(" tr ") > -1){
-//         if(input.indexOf("TranslatorBot") > -1 && input.indexOf("TranslatorBot") < 2){
-//             var msg = input.substring(input.indexOf("TranslatorBot")+13, input.indexOf(" tr "));
-//         }
-//         else{
-//             var msg = input.substring(0, input.indexOf(" tr "));
-//         }
-//         var lang = input.substring(input.indexOf(" tr ") + 4, input.length);
-//         if(lang.substring(0) == "\s"){
-//             lang = lang.substring(1, lang.length);
-//         }
-//         if(lang.substring(lang.length) == "\s"){
-//             lang = lang.substring(0, lang.length - 1);
-//         }
-//         if(langcodes.indexOf(lang) > -1){
-//             trans = googleAPI(msg, lang);
-//             msgback = msgback.concat("Translated (", langword[langcodes.indexOf(lang)], "): ", trans);           
-//         }
-//         else if(langword.indexOf(lang) > -1){
-//             // Use langword
-//             msgback = msgback.concat("Translated (", lang, ") ", "You can just use the language code, ",
-//             langcodes[langword.indexOf(lang)]);
-//         }
-//         else{
-//             msgback = msgback.concat("We don't know that language! Here is a list of our languages: \n\n",
-//             langword.toString());
-//         }
-//         return msgback;
-//     }
-//     else{
-//         return "Cool :)"
-//     }
-// }
 
 function sparkGetMessage() {
     var prepValue = "https://api.ciscospark.com/v1/messages/"+SpkMessage;
